@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST)) {
+if(isset($_POST['submit'])) {
 	//collect and clean inputs
 	$name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -17,6 +17,6 @@ if(isset($_POST)) {
 	file_put_contents($newfile, $name.','.$email.','.$title.','.$message.PHP_EOL , FILE_APPEND | LOCK_EX); 
 	
 	//output response
-	echo "Your form has been submitted sucessfully";
+	echo $name. "Your form has been submitted sucessfully";
 }
 ?>
